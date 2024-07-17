@@ -848,3 +848,108 @@ section .image .box{
     height: 100vh;
     width: 100vw;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+#footer{
+    width: 100%;
+    height: 100%;
+    padding: 5vh 10vh;
+}
+#box{
+    width: 100%;
+    height: 65%;
+   
+    display: flex;
+    align-items:start;
+    justify-content: center;
+    gap: 18vh;
+    padding: 20px 100px;
+
+}
+.boxes{
+    height: 100%;
+    width: fit-content;
+ 
+    padding: 30px 30px ;
+    
+}
+.boxes h3{
+    font-weight: 900;
+    margin-bottom: 22px;
+    font-size: 20px;
+
+
+}
+.boxes h5{
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 8px;
+   
+
+
+}
+#box2{
+    width: 100%;
+    height: 20%;
+    /* background-color: rgb(225, 240, 53); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 18vh;
+    border-bottom: 2px solid gray;
+
+}
+#box2 #left{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+}
+#box2 #right{
+
+}
+ #box2 #left h3{
+    height:8vh;
+    width: 8vh;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.6vh;
+    border-radius: 50%;
+    border: 0.1vh solid gray;
+   
+}
+#box3{
+    width: 100%;
+    height: 20%;
+    /* background-color: red; */
+    padding: 0px 10vh;
+    
+    /* white-space: nowrap;
+     */
+
+
+}
+#box3 h3{
+    display: inline-block;
+    padding-left: 8vh;
+     margin-right: 2vh;
+    margin-top: 3vh; 
+    font-size: 2.5vh;
+
+}
