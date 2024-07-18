@@ -4,16 +4,16 @@ const pcfe = document.querySelector(".pcfe");
 const green = document.querySelector(".green");
 const orange = document.querySelector(".orange");
 const pink = document.querySelector(".pink");
-const h1 = document.querySelector(".h1")
-const h2 = document.querySelector(".h2")
-const h3 = document.querySelector(".h3")
+const b1 = document.querySelector(".b1")
+const b2 = document.querySelector(".b2")
+const b3 = document.querySelector(".b3")
 
 
 
 gcfe.addEventListener("click", ()=>{
     green.style.opacity = "1"
     green.style.transform = "rotate(0deg)"
-    h1.style.backgroundColor = "#00854C";
+    b1.style.backgroundColor = "#00854C";
 
     pink.style.opacity = '0'
     pink.style.transform = 'rotate(-90deg)'
@@ -24,7 +24,7 @@ gcfe.addEventListener("click", ()=>{
 ocfe.addEventListener("click", ()=>{
     orange.style.opacity = '1'
     orange.style.transform = 'rotate(0deg)'
-    h2.style.backgroundColor = "#EDDCD9";
+    b2.style.backgroundColor = "#EDDCD9";
 
 
     pink.style.opacity = '0'
@@ -36,7 +36,7 @@ ocfe.addEventListener("click", ()=>{
 pcfe.addEventListener("click", ()=>{
     pink.style.opacity = '1'
     pink.style.transform = 'rotate(0deg)'
-    h3.style.backgroundColor = "#771D5D";
+    b3.style.backgroundColor = "#771D5D";
 
     orange.style.opacity = '0'
     orange.style.transform = 'rotate(-90deg)'
@@ -189,4 +189,3 @@ tl
    delay: -0.2,
    marginTop: "0%"
 })
-
