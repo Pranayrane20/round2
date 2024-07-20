@@ -21,6 +21,10 @@
     font-family: product sans;
     src: url('/fonts/Product\ Sans\ Regular.ttf');
 }
+@font-face {
+    font-family: star;
+    src: url(fonts/CabinSketch-Bold.ttf);
+}
 
 *{
     margin: 0;
@@ -37,6 +41,9 @@ html, body{
 }
 body{
     overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+    display: none;
 }
 
 /* loader */
@@ -93,14 +100,17 @@ body{
 
 .loader-1{
     position: relative;
-    background: rgb(52, 237, 5);
+    background: #0bff71;
     width: 200px;
+    border: 2px solid #0bff71;
 }
 
 .loader-2{
     position: relative;
-    background: rgb(52, 237, 5);
+    background: #0bff71;
     width: 100px;
+    border: 2px solid #0bff71;
+
 }
 
 .bar{
@@ -153,8 +163,11 @@ body>i{
     height: 100vh;
     width: 40%;
     position: absolute;
+    display: flex;
+    flex-direction: column;
     background-color: rgba(255, 255, 255, 0.544);
     top: 0;
+    
     right: -40%; 
     backdrop-filter: blur(10px);
     padding: 100px 60px;
@@ -163,10 +176,18 @@ body>i{
 
 #full h4{
     color: black;
+    display: inline-block;
+    width: fit-content;
     font-size: 50px;
     font-weight: 500;
     margin-bottom: 10px;
 }
+#full h4:hover{
+    rotate: 0 1 0 360deg;
+    transition: 0.5s ease-in-out;
+    /* color: #0f0; */
+}
+
 
 #full i{
     position: absolute;
@@ -179,8 +200,6 @@ body>i{
     font-size: 20px;
     cursor: pointer;
 }
-
-
 
 nav{
     width: 100%;
@@ -261,8 +280,9 @@ section #content h1{
 
 section #content h1 span{
     color: #0bff71;
-    font-size: 5.5vw;
+    font-size: 5.7vw;
     font-weight: 800;
+    font-family: star;
 }
 
 section #content p{
@@ -438,11 +458,18 @@ section .image .box{
     content: "";
     position: absolute;
     height: 4px;
-    width: 34%;
+    width: 0%;
     background-color:#0bff71 ;
     bottom: -2%;
     left: 0;
+    transition: all ease 0.5s;
 }
+
+#updated h1:hover::after{
+    width: 34%;
+}
+
+
 
 #updated img{
     position: absolute;
@@ -452,6 +479,7 @@ section .image .box{
     object-position: bottom;
     right: 0;
     top: 0;
+    border-top-left-radius: 25px;
 }
 
 #updated>p{
@@ -469,11 +497,10 @@ section .image .box{
     align-items: center;
     gap: 1vw;
 }
-
 #updated #order p{
     font-size: 1.2vw;
-
 }
+
 
 #updated #order button{
     padding: 1vw 2.5vw;
@@ -481,7 +508,32 @@ section .image .box{
     background-color: #2b292d;
     color: #fff;
     border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 9999;
 }
+
+#updated #order button::after{
+    content: "";
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: all ease 0.5s;
+}
+
+#updated #order button:hover::after{
+    top: 0;
+    left: 0;
+}
+#updated #order button:hover{
+    color: black;
+}
+
 
 #video-section{
     height: 10vw;
@@ -548,7 +600,7 @@ section .image .box{
     height: 100%;
     position: relative;
 }
-.hit_3 .list::before{
+/* .hit_3 .list::before{
     position: absolute;
     width: var(--w-image);
     height: 100%;
@@ -559,8 +611,8 @@ section .image .box{
     border-right: 1px solid var(--border-color);
     z-index: 10;
     pointer-events: none;
-    color: black;
-}
+    color: rgb(26, 255, 0);
+} */
 
 .hit_3 .list .item{
     position: absolute;
@@ -571,11 +623,13 @@ section .image .box{
 }
 .hit_3 .list .item .image{
     width: var(--w-image);
+    width: 50%;
     height: 100%;
     position: absolute;
     top: 0;
     left: calc(100% - calc(var(--w-image) * var(--calculate)));
-    padding: 20px;
+    left: 50%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -585,7 +639,8 @@ section .image .box{
 }
 .hit_3 .list .item .image img{
     width: 22vw;
-    margin-top: 100px;
+    height: 80%;
+    margin-bottom: 40px;
     filter: drop-shadow(0 150px 50px #9e0c0c55);
 }
 .hit_3 .list .item .image figcaption{
@@ -619,7 +674,7 @@ section .image .box{
     color: rgb(255, 255, 255);
 }
 .hit_3 .list .item .main-content .content .button{
-    background-color: #4f8b69;
+    background-color: #0bff71;
     color: #000000;
     padding: 10px  30px;
     font-family: Poppins;
@@ -628,7 +683,36 @@ section .image .box{
     border-radius: 30px;
     border: none;
     margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    /* z-index: 9999; */
 }
+.hit_3 .list .item .main-content .content button::after{
+    content: "";
+    position: absolute;
+    background-color: white;
+    top:100%;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100;
+    z-index: -1;
+    transition: 0.5s all ease ;
+}
+.hit_3 .list .item .main-content .content button:hover::after{
+    top:0;
+    left: 0;
+}
+.hit_3 .list .item .main-content .content button:hover{
+    color: black;
+}
+
+
+/* .hit_3 .list .item .main-content .content .button:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+} */
+
 
 .content .description{
     font-size: 1.3vw;
@@ -638,7 +722,7 @@ section .image .box{
 .arrows{
     position: absolute;
     right: 52%;
-    bottom: 40px;
+    bottom: 80px;
     width: calc(100% - calc(var(--w-image) * var(--calculate)));
     display: grid;
     grid-template-columns: repeat(2, 30px);
@@ -660,6 +744,7 @@ section .image .box{
     cursor: pointer;
     transition: 0.5s;
 }
+
 .arrows button:hover{
     background-color: #eee5;
 }
@@ -824,6 +909,7 @@ section .image .box{
     justify-content: center;
     z-index: 9;
     /* opacity: 0; */
+    margin-left: -10%;
 }
 
 .textarea h1{
@@ -866,6 +952,7 @@ section .image .box{
     margin-top: 1vw;
     font-size: .6vw;
     color: rgb(255, 255, 255);
+    
 }
 
 .lineone{
@@ -1133,10 +1220,11 @@ section .image .box{
     box-shadow: 4px 4px 10px black;
     position: relative;
 }
-.menu-card img:hover{
-    background: #ffffff;
-    box-shadow:  9px 9px 18px #c4c4c4,
-                 -9px -9px 18px #ffffff;
+#hit-5 .menu-card:hover{
+    /* border-radius: 50px; */
+background: #e0e0e0;
+box-shadow:  6px 6px 14px #5c5c5c,
+             -6px -6px 14px #ffffff;
 }
 
 #hit-5 .upper-menu .menu-card img{
@@ -1170,7 +1258,34 @@ section .image .box{
     top: 80%;
     left: 68%;
     border: 2px solid white;
+    overflow: hidden;
 }
+
+.menu-card button::after{
+    content: "";
+    position: absolute;
+    background-color: white;
+    top: 100%;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: all ease 0.5s;
+}
+
+.menu-card button:hover::after{
+    top: 0;
+    left: 0;
+}
+.menu-card button:hover{
+    color: black;
+}
+/* .menu-card button:hover{
+    background-color: rgb(164, 111, 111);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+} */
 /* hit5 ends----------------------------------------------------------------- */
 
 
@@ -1184,13 +1299,13 @@ section .image .box{
 }
 #box{
     width: 100%;
-    height: 65%;
+    height: 55%;
    
     display: flex;
     align-items:start;
     justify-content: center;
     gap: 18vh;
-    padding: 20px 100px;
+    padding: 10px 100px;
 
 }
 .boxes{
@@ -1204,39 +1319,69 @@ section .image .box{
     font-weight: 900;
     margin-bottom: 22px;
     font-size: 28px;
-
-
+    display: inline-block;
+    position: relative;
 }
+
+
 .boxes h5{
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 8px;
-   
-
-
+    display: inline-block;
+    position: relative;
 }
+.boxes h3::after,h5::after  {
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: white;
+    position: absolute;
+    bottom: -20%;
+    left: 0;
+    transition: all 0.8s ease;
+}
+
+.boxes h3:hover::after,h5:hover::after {
+    animation-name: hover-animation;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hover-animation {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+
 #box2{
     width: 100%;
-    height: 20%;
+    height: 15%;
     /* background-color: rgb(225, 240, 53); */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 18vh;
-    border-bottom: 2px solid gray;
-
+    /* border-bottom: 2px solid gray; */
 }
+
 #box2 #left{
-   
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     
 }
-/* #box2 #right{
-
-} */
+#box2 #right{
+   color: red;
+}
  #box2 #left a{
     height:8vh;
     width: 8vh;
@@ -1247,12 +1392,18 @@ section .image .box{
     justify-content: center;
     font-size: 4.6vh;
     border-radius: 50%;
+    text-decoration: none;
     border: 0.1vh solid gray;
    
 }
+
+#box2 #left a:hover{
+    margin-top: -20px;
+}
+
 #box3{
     width: 100%;
-    height: 20%;
+    height: 45%;
     /* background-color: red; */
     padding: 0px 10vh;
 }
@@ -1263,4 +1414,26 @@ section .image .box{
      margin-right: 2vh;
     margin-top: 3vh; 
     font-size: 2.5vh;
+}
+
+
+
+
+
+#string{
+    /* position: relative; */
+    height:100px;
+    width:100%; 
+    background-color: rgb(0, 0, 0); 
+    display: flex; 
+    /* align-items: center; */
+    align-content: center;
+    justify-content: center;
+}
+
+svg{
+    background: rgb(0, 0, 0);
+    width: 100%;
+    align-content: center;
+    justify-content: center;
 }
